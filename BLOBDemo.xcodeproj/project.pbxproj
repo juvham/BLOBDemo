@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C5C09FCE19808EF400E8834C /* ChentayyebFR.db in Resources */ = {isa = PBXBuildFile; fileRef = C5C09FCD19808EF400E8834C /* ChentayyebFR.db */; };
 		C5C18D30197769D80042DA48 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C18D2F197769D80042DA48 /* Foundation.framework */; };
 		C5C18D32197769D80042DA48 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C18D31197769D80042DA48 /* CoreGraphics.framework */; };
 		C5C18D34197769D80042DA48 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C18D33197769D80042DA48 /* UIKit.framework */; };
@@ -33,7 +34,6 @@
 		C5C18D851977714B0042DA48 /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = C5C18D791977714B0042DA48 /* NSObject+LKModel.m */; };
 		C5C18D87197771740042DA48 /* 41.png in Resources */ = {isa = PBXBuildFile; fileRef = C5C18D86197771740042DA48 /* 41.png */; };
 		C5C18D89197772F00042DA48 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = C5C18D88197772F00042DA48 /* libsqlite3.dylib */; };
-		C5C18D8B197773E20042DA48 /* BLOB.db in Resources */ = {isa = PBXBuildFile; fileRef = C5C18D8A197773E20042DA48 /* BLOB.db */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C5C09FCD19808EF400E8834C /* ChentayyebFR.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChentayyebFR.db; sourceTree = "<group>"; };
 		C5C18D2C197769D80042DA48 /* BLOBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLOBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C5C18D2F197769D80042DA48 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		C5C18D31197769D80042DA48 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -89,7 +90,6 @@
 		C5C18D791977714B0042DA48 /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		C5C18D86197771740042DA48 /* 41.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 41.png; sourceTree = "<group>"; };
 		C5C18D88197772F00042DA48 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
-		C5C18D8A197773E20042DA48 /* BLOB.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = BLOB.db; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +120,7 @@
 		C5C18D23197769D80042DA48 = {
 			isa = PBXGroup;
 			children = (
-				C5C18D8A197773E20042DA48 /* BLOB.db */,
+				C5C09FCD19808EF400E8834C /* ChentayyebFR.db */,
 				C5C18D86197771740042DA48 /* 41.png */,
 				C5C18D5E1977714B0042DA48 /* FMDB */,
 				C5C18D6D1977714B0042DA48 /* Helper */,
@@ -324,8 +324,8 @@
 			files = (
 				C5C18D3A197769D80042DA48 /* InfoPlist.strings in Resources */,
 				C5C18D87197771740042DA48 /* 41.png in Resources */,
-				C5C18D8B197773E20042DA48 /* BLOB.db in Resources */,
 				C5C18D42197769D80042DA48 /* Images.xcassets in Resources */,
+				C5C09FCE19808EF400E8834C /* ChentayyebFR.db in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -554,6 +554,7 @@
 				C5C18D5A197769D80042DA48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C5C18D5B197769D80042DA48 /* Build configuration list for PBXNativeTarget "BLOBDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -562,6 +563,7 @@
 				C5C18D5D197769D80042DA48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

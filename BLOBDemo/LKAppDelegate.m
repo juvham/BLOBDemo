@@ -10,28 +10,35 @@
 #import "LKDBHelper.h"
 
 //save the blob type
-@interface LKBLOBTest : NSObject
-@property(strong,nonatomic)UIImage* image;
+@interface ImageModel : NSObject
+@property int _id;
+@property(strong,nonatomic)NSString* fr;
+@property(strong,nonatomic)NSString* ar;
+@property(strong,nonatomic)UIImage* img;
 @end
 
-@implementation LKBLOBTest
+@implementation ImageModel
 +(LKDBHelper *)getUsingLKDBHelper
 {
     static LKDBHelper* helper;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        helper = [[LKDBHelper alloc]initWithDBPath:[LKDBUtils getPathForDocuments:@"haha.db" inDir:@"blah"]];
+        helper = [[LKDBHelper alloc]initWithDBPath:[LKDBUtils getPathForDocuments:@"ChentayyebFR.db" inDir:@"blah"]];
     });
     return helper;
 }
 +(void)initialize
 {
-    [self setUserCalculateForCN:@"image"];
+    [self setUserCalculateForCN:@"img"];
     [[self getUsingLKDBHelper] createTableWithModelClass:self];
+}
++(NSString *)getTableName
+{
+    return @"lexi";
 }
 -(id)userGetValueForModel:(LKDBProperty *)property
 {
-    NSData* data = UIImagePNGRepresentation(self.image);
+    NSData* data = UIImagePNGRepresentation(self.img);
     
     //In order to match with your original database column
     return data;
@@ -42,32 +49,16 @@
     {
         NSData* data = value;
         UIImage* image = [UIImage imageWithData:data];
-        self.image = image;
+        self.img = image;
     }
-}
-@end
-
-
-//save the file path type
-@interface LKBLOBTestUseLKDB : NSObject
-@property(strong,nonatomic)UIImage* image;
-@end
-@implementation LKBLOBTestUseLKDB
-+(void)initialize
-{
-    [[self getUsingLKDBHelper] createTableWithModelClass:self];
-}
-+(LKDBHelper *)getUsingLKDBHelper
-{
-    return [LKBLOBTest getUsingLKDBHelper];
 }
 @end
 
 @implementation LKAppDelegate
 +(void)initialize
 {
-    NSString* dbpath = [[NSBundle mainBundle] pathForResource:@"BLOB" ofType:@"db"];
-    [[NSFileManager defaultManager] copyItemAtPath:dbpath toPath:[LKDBUtils getPathForDocuments:@"haha.db" inDir:@"blah"] error:nil];
+    NSString* dbpath = [[NSBundle mainBundle] pathForResource:@"ChentayyebFR" ofType:@"db"];
+    [[NSFileManager defaultManager] copyItemAtPath:dbpath toPath:[LKDBUtils getPathForDocuments:@"ChentayyebFR.db" inDir:@"blah"] error:nil];
 }
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -75,19 +66,15 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    NSArray* models = [ImageModel searchWithWhere:nil orderBy:nil offset:0 count:0];
     
-    ///save image blob
-    LKBLOBTest* test = [LKBLOBTest searchSingleWithWhere:nil orderBy:@"rowid"];
-    test.rowid = 1000;
-    NSLog(@"%@",test.image);
-    [test saveToDB];
-
-    
-    ///save image file path
-    LKBLOBTestUseLKDB* test2 = [LKBLOBTestUseLKDB new];
-    test2.image = [UIImage imageNamed:@"41.png"];
-    [test2 saveToDB];
-
+    int i =0;
+    for (ImageModel* imageModel in models) {
+        UIImageView* view = [[UIImageView alloc]initWithFrame:CGRectMake(150*i%2, 50 * i/2, 140, 40)];
+        view.image = imageModel.img;
+        [_window addSubview:view];
+        i++;
+    }
     
     return YES;
 }
